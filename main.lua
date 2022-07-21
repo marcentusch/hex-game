@@ -1,15 +1,11 @@
 function love.load()
   InitStyle()
   HexSize = 50
+  love.window.setMode(800, 800)
 end
 
 function love.draw()
-  DrawHex(1, 1)
-  DrawHex(1, 2)
-  DrawHex(1, 3)
-  DrawHex(2, 1)
-  DrawHex(2, 2)
-  DrawHex(2, 3)
+  CreateGrid(3)
 end
 
 function InitStyle()
@@ -32,9 +28,17 @@ function DrawHex(q, r)
 end
 
 function HexToPixel(q, r)
-  local x = HexSize * (3. / 2 * q)
-  print(x)
-
-  local y = HexSize * (math.sqrt(3) / 2 * q + math.sqrt(3) * r)
+  local x = HexSize * (3 / 2 * q) + 400
+  local y = HexSize * (math.sqrt(3) / 2 * q + math.sqrt(3) * r) + 400
   return x, y
+end
+
+function CreateGrid(mapRadius)
+  for q = -mapRadius, mapRadius do
+    local r1 = math.max(-mapRadius, -q - mapRadius);
+    local r2 = math.min(mapRadius, -q + mapRadius);
+    for r = r1, r2 do
+      DrawHex(q, r)
+    end
+  end
 end
