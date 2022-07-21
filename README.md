@@ -1,8 +1,10 @@
 ## Notes
 
-hexSize: distance from center to any corner
-hex height: `h = sqrt(3) * hexSize`
-hex width: `w = hexSize * 2`
+[Hexagon Bible](https://www.redblobgames.com/grids/hexagons/)
+
+- hexSize: distance from center to any corner
+- hex height: `h = sqrt(3) * hexSize`
+- hex width: `w = hexSize * 2`
 
 ## To run game
 

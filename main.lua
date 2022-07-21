@@ -28,8 +28,8 @@ function DrawHex(q, r)
 end
 
 function HexToPixel(q, r)
-  local x = HexSize * (3 / 2 * q) + 400
-  local y = HexSize * (math.sqrt(3) / 2 * q + math.sqrt(3) * r) + 400
+  local x = HexSize * (3 / 2 * q) + love.graphics.getWidth() / 2
+  local y = HexSize * (math.sqrt(3) / 2 * q + math.sqrt(3) * r) + love.graphics.getHeight() / 2
   return x, y
 end
 
