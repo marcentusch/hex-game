@@ -4,15 +4,12 @@ function love.load()
 end
 
 function love.draw()
-
   DrawHex(1, 1)
   DrawHex(1, 2)
   DrawHex(1, 3)
   DrawHex(2, 1)
   DrawHex(2, 2)
   DrawHex(2, 3)
-
-
 end
 
 function InitStyle()
@@ -35,7 +32,9 @@ function DrawHex(q, r)
 end
 
 function HexToPixel(q, r)
-  local x = HexSize * (3 / 2 * q)
+  local x = HexSize * (3. / 2 * q)
+  print(x)
+
   local y = HexSize * (math.sqrt(3) / 2 * q + math.sqrt(3) * r)
   return x, y
 end

@@ -6,7 +6,7 @@ hex width: `w = hexSize * 2`
 
 ## To run game
 
-`❯ open -n -a love "/Users/marc/code/love-hex"`
+`love ../love-hex`
 
 ## Colors
 
