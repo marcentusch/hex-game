@@ -4,8 +4,15 @@ function love.load()
 end
 
 function love.draw()
-  local x, y = HexToPixel(2, 3)
-  DrawHex(x, y)
+
+  DrawHex(1, 1)
+  DrawHex(1, 2)
+  DrawHex(1, 3)
+  DrawHex(2, 1)
+  DrawHex(2, 2)
+  DrawHex(2, 3)
+
+
 end
 
 function InitStyle()
@@ -15,7 +22,8 @@ function InitStyle()
   love.window.setTitle("Hex")
 end
 
-function DrawHex(x, y)
+function DrawHex(q, r)
+  local x, y = HexToPixel(q, r)
   local vertices = {}
   table.insert(vertices, x + HexSize)
   table.insert(vertices, y)
