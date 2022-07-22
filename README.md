@@ -8,7 +8,7 @@
 
 ## To run game
 
-`love ../love-hex`
+`love ./src`
 
 ## Colors
 

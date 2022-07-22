@@ -30,3 +30,14 @@ function HexToPixel(hex)
   local y = HexSize * (math.sqrt(3) / 2 * hex.q + math.sqrt(3) * hex.r) + love.graphics.getHeight() / 2
   return x, y
 end
+
+function CreateHexGrid(mapRadius)
+  for q = -mapRadius, mapRadius do
+    local r1 = math.max(-mapRadius, -q - mapRadius);
+    local r2 = math.min(mapRadius, -q + mapRadius);
+    for r = r1, r2 do
+      local hex = { q = q, r = r }
+      DrawGridHex(hex)
+    end
+  end
+end
