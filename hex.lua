@@ -1,3 +1,5 @@
+HexSize = 50
+
 function DrawHex(hex, hexSize, fillMode)
   local x, y = HexToPixel(hex)
   local vertices = {}
@@ -8,6 +10,19 @@ function DrawHex(hex, hexSize, fillMode)
     table.insert(vertices, y + hexSize * math.sin(i * math.pi / 3))
   end
   love.graphics.polygon(fillMode, vertices)
+end
+
+function DrawGridHex(hex)
+  if IsPlayerPos(Player, hex) then
+    DrawPlayerHex(hex)
+  else
+    DrawHex(hex, HexSize, 'line')
+  end
+end
+
+function DrawPlayerHex(hex)
+  DrawHex(hex, HexSize, 'line')
+  DrawHex(hex, HexSize - 15, 'fill')
 end
 
 function HexToPixel(hex)
