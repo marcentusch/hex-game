@@ -1,5 +1,3 @@
-HexSize = 50
-
 function DrawHex(hex, hexSize, fillMode)
   local x, y = HexToPixel(hex)
   local vertices = {}
@@ -12,8 +10,8 @@ function DrawHex(hex, hexSize, fillMode)
   love.graphics.polygon(fillMode, vertices)
 end
 
-function DrawGridHex(hex)
-  if IsPlayerPos(Player, hex) then
+function DrawGridHex(hex, playerHex)
+  if HexOverlaps(playerHex, hex) then
     DrawPlayerHex(hex)
   else
     DrawHex(hex, HexSize, 'line')
@@ -31,13 +29,28 @@ function HexToPixel(hex)
   return x, y
 end
 
-function CreateHexGrid(mapRadius)
+function GetHexGrid(mapRadius)
+  local grid = {}
   for q = -mapRadius, mapRadius do
     local r1 = math.max(-mapRadius, -q - mapRadius);
     local r2 = math.min(mapRadius, -q + mapRadius);
     for r = r1, r2 do
-      local hex = { q = q, r = r }
-      DrawGridHex(hex)
+      local hex = { id = q .. r, q = q, r = r }
+      grid[hex.id] = hex
     end
   end
+  return grid
+end
+
+function DrawGridHexes(hexGrid, playerHex)
+  for key, hex in pairs(hexGrid) do
+    DrawGridHex(hex, playerHex)
+  end
+end
+
+function HexOverlaps(hex1, hex2)
+  if hex1.q == hex2.q and hex1.r == hex2.r then
+    return true
+  end
+  return false
 end
