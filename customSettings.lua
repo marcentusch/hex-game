@@ -1,19 +1,19 @@
 --QWERTY
 -- Controls = {
---     ["up"] = "o",
---     ["rup"] = "l",
---     ["rdown"] = ",",
---     ["down"] = "m",
---     ["ldown"] = "j",
---     ["lup"] = "i"
+--     ["up"] = "i",
+--     ["rup"] = "o",
+--     ["rdown"] = "l",
+--     ["down"] = ",",
+--     ["ldown"] = "m",
+--     ["lup"] = "j"
 -- }
 
 --colemak-dh
 Controls = {
-    ["up"] = "p",
-    ["rup"] = "c",
-    ["rdown"] = "t",
-    ["down"] = "r",
-    ["ldown"] = "w",
-    ["lup"] = "f"
+    ["up"] = "f",
+    ["rup"] = "p",
+    ["rdown"] = "r",
+    ["down"] = "s",
+    ["ldown"] = "r",
+    ["lup"] = "w"
 }
