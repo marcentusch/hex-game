@@ -1,6 +1,6 @@
 require('hex')
-require('controls')
 require('util')
+
 ScreenWidth = 720
 ScreenHeight = 720
 HexSize = 50
@@ -13,7 +13,6 @@ Player = {
     r = 0
   }
 }
-
 
 function love.load()
   local font = love.graphics.newFont('SpaceMono-Bold.ttf', 16)
@@ -35,4 +34,31 @@ end
 function love.draw()
   ShowFPS()
   DrawGridHexes(Grid, Player.currentHex)
+end
+
+function love.keypressed(key)
+  if key == "escape" then
+    love.event.quit()
+  end
+
+  if key == "f" then
+    Player.currentHex.r = Player.currentHex.r - 1
+  end
+  if key == "c" then
+    Player.currentHex.r = Player.currentHex.r + 1
+  end
+  if key == "w" then
+    Player.currentHex.q = Player.currentHex.q - 1
+  end
+  if key == "t" then
+    Player.currentHex.q = Player.currentHex.q + 1
+  end
+  if key == "r" then
+    Player.currentHex.r = Player.currentHex.r + 1
+    Player.currentHex.q = Player.currentHex.q - 1
+  end
+  if key == "p" then
+    Player.currentHex.r = Player.currentHex.r - 1
+    Player.currentHex.q = Player.currentHex.q + 1
+  end
 end

@@ -18,6 +18,7 @@
 ## TODO
 
 - add debug mode which shows coords on each hex
+- make sure you can't move out of the map
 - CHECK: save grid in a table
 - CHECK: move with f=up, s=down, w=up-left, p=up-right, r=down-left, t=down-right
 - choose a color palette
