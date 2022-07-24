@@ -4,6 +4,7 @@ require('util')
 require('control')
 
 Grid = {}
+OutOfBboundsHexIds = {}
 Player = {
   currentHex = {
     id = "00",
@@ -22,6 +23,7 @@ function love.load()
   love.window.setTitle("Hex")
   love.window.setMode(Settings.ScreenWidth, Settings.ScreenHeight, Settings.WindowFlags)
   Grid = GetHexGrid(Settings.HexGridSize)
+  OutOfBboundsHexIds = GetOutOfBoundsHexIds()
   math.randomseed(os.time())
 end
 

@@ -6,21 +6,34 @@ function love.keypressed(key)
   end
 
   if key == Controls.up then -- up
-    MovePlayer(0, -1)
+    HandlePlayerMovement(CreateHex(0, -1))
   elseif key == Controls.rup then -- right up
-    MovePlayer(1, -1)
+    HandlePlayerMovement(CreateHex(1, -1))
   elseif key == Controls.rdown then -- right down
-    MovePlayer(1, 0)
+    HandlePlayerMovement(CreateHex(1, 0))
   elseif key == Controls.down then -- down
-    MovePlayer(0, 1)
+    HandlePlayerMovement(CreateHex(0, 1))
   elseif key == Controls.ldown then -- left down
-    MovePlayer(-1, 1)
+    HandlePlayerMovement(CreateHex(-1, 1))
   elseif key == Controls.lup then -- left up
-    MovePlayer(-1, 0)
+    HandlePlayerMovement(CreateHex(-1, 0))
   end
 end
 
-function MovePlayer(q, r)
-  Player.currentHex.q = Player.currentHex.q + q
-  Player.currentHex.r = Player.currentHex.r + r
+function MovePlayerToHex(hex)
+  Player.currentHex.q = hex.q
+  Player.currentHex.r = hex.r
+end
+
+function HandlePlayerMovement(hex)
+  local updatedHex = SumHex(Player.currentHex, hex)
+  if IsHexOutOfBounds(updatedHex, OutOfBboundsHexIds) then return nil end
+  MovePlayerToHex(updatedHex)
+end
+
+function IsHexOutOfBounds(targetHex, outOfBboundsHexIds)
+  for i, hexId in ipairs(outOfBboundsHexIds) do
+    if targetHex.id == hexId then return true end
+  end
+  return false
 end

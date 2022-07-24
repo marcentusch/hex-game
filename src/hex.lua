@@ -38,7 +38,7 @@ function GetHexGrid(mapRadius)
     local r1 = math.max(-mapRadius, -q - mapRadius);
     local r2 = math.min(mapRadius, -q + mapRadius);
     for r = r1, r2 do
-      local hex = { id = q .. r, q = q, r = r }
+      local hex = CreateHex(q, r)
       grid[hex.id] = hex
     end
   end
@@ -56,4 +56,12 @@ function HexOverlaps(hex1, hex2)
     return true
   end
   return false
+end
+
+function CreateHex(q, r)
+  return { id = q .. r, q = q, r = r }
+end
+
+function SumHex(hex1, hex2)
+  return CreateHex(hex1.q + hex2.q, hex1.r + hex2.r)
 end
