@@ -26,6 +26,7 @@ function MovePlayerToHex(hex)
 end
 
 function HandlePlayerMovement(hex)
+  GameSteps = GameSteps + 1
   local updatedHex = SumHex(Player.currentHex, hex)
   if IsHexOutOfBounds(updatedHex, OutOfBboundsHexIds) then return nil end
   MovePlayerToHex(updatedHex)

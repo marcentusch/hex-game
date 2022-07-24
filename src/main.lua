@@ -5,6 +5,7 @@ require('control')
 
 Grid = {}
 OutOfBboundsHexIds = {}
+GameSteps = 0
 Player = {
   currentHex = {
     id = "00",
@@ -27,11 +28,8 @@ function love.load()
   math.randomseed(os.time())
 end
 
-function love.update(dt)
-
-end
-
 function love.draw()
   ShowFPS()
+  ShowGameStepCounter()
   DrawGridHexes(Grid, Player.currentHex)
 end
