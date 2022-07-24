@@ -8,7 +8,9 @@
 
 ## To run game
 
-`love ./src`
+Install love2d with `brew install love2d` or with your package manager of choice
+
+run game with `love ./src`
 
 ## Colors
 
@@ -17,8 +19,8 @@
 
 ## TODO
 
-- add debug mode which shows coords on each hex
-- make sure you can't move out of the map
+- CHECK: add debug mode which shows coords on each hex
+- CHECK: make sure you can't move out of the map
 - CHECK: save grid in a table
 - CHECK: move with f=up, s=down, w=up-left, p=up-right, r=down-left, t=down-right
 - choose a color palette
