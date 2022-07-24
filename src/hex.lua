@@ -14,18 +14,18 @@ function DrawGridHex(hex, playerHex)
   if HexOverlaps(playerHex, hex) then
     DrawPlayerHex(hex)
   else
-    DrawHex(hex, HexSize, 'line')
+    DrawHex(hex, Settings.HexSize, 'line')
   end
 end
 
 function DrawPlayerHex(hex)
-  DrawHex(hex, HexSize, 'line')
-  DrawHex(hex, HexSize - 15, 'fill')
+  DrawHex(hex, Settings.HexSize, 'line')
+  DrawHex(hex, Settings.HexSize - 15, 'fill')
 end
 
 function HexToPixel(hex)
-  local x = HexSize * (3 / 2 * hex.q) + love.graphics.getWidth() / 2
-  local y = HexSize * (math.sqrt(3) / 2 * hex.q + math.sqrt(3) * hex.r) + love.graphics.getHeight() / 2
+  local x = Settings.HexSize * (3 / 2 * hex.q) + love.graphics.getWidth() / 2
+  local y = Settings.HexSize * (math.sqrt(3) / 2 * hex.q + math.sqrt(3) * hex.r) + love.graphics.getHeight() / 2
   return x, y
 end
 
