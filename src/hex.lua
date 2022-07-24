@@ -8,6 +8,9 @@ function DrawHex(hex, hexSize, fillMode)
     table.insert(vertices, y + hexSize * math.sin(i * math.pi / 3))
   end
   love.graphics.polygon(fillMode, vertices)
+  if Settings.Debug then
+    WriteDebugCoords(hex, hexSize, x, y)
+  end
 end
 
 function DrawGridHex(hex, playerHex)
