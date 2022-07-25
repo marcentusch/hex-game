@@ -28,13 +28,17 @@ end
 function HandlePlayerMovement(hex)
   GameSteps = GameSteps + 1
   local updatedHex = SumHex(Player.currentHex, hex)
-  if IsHexOutOfBounds(updatedHex, OutOfBboundsHexIds) then return nil end
+  if IsOutOfBounds(updatedHex) then return nil end
   MovePlayerToHex(updatedHex)
 end
 
-function IsHexOutOfBounds(targetHex, outOfBboundsHexIds)
-  for i, hexId in ipairs(outOfBboundsHexIds) do
-    if targetHex.id == hexId then return true end
+function IsOutOfBounds(hex)
+  local s = -hex.q - hex.r
+  if (math.abs(s) <= Settings.HexGridSize
+      and math.abs(hex.r) <= Settings.HexGridSize
+      and math.abs(hex.q) <= Settings.HexGridSize) then
+    return false
+  else
+    return true
   end
-  return false
 end

@@ -10,12 +10,6 @@ function WriteDebugCoords(hex, hexSize, x, y)
   love.graphics.setColor(r, g, b, a)
 end
 
-function GetOutOfBoundsHexIds()
-  return { "0-6", "1-6", "2-6", "3-6", "4-6", "5-6", "6-6", "6-5", "6-4", "6-3", "6-2", "6-1", "60", "51", "42", "33",
-    "24", "15", "06", "-16", "-26", "-36", "-46", "-56", "-66", "-65", "-64", "-63", "-62", "-61", "-60", "-5-1", "-4-2",
-    "-3-3", "-2-4", "-1-5" }
-end
-
 function ShowGameStepCounter()
   love.graphics.print(GameSteps, 20, Settings.ScreenHeight - 30)
 end
