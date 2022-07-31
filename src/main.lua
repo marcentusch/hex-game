@@ -24,6 +24,9 @@ function love.load()
   love.window.setMode(Settings.ScreenWidth, Settings.ScreenHeight, Settings.WindowFlags)
   Grid = GetHexGrid(Settings.HexGridSize)
   math.randomseed(os.time())
+  if not Settings.Antialising then
+    love.graphics.setLineStyle('rough')
+  end
 end
 
 function love.draw()

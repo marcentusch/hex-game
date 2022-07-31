@@ -7,5 +7,6 @@ Settings = {
     HexDrawWidth = 5,
     HexColor = { 240 / 255, 246 / 255, 240 / 255 },
     BackgroundColor = { 34 / 255, 35 / 255, 35 / 255 },
-    Debug = false
+    Debug = false,
+    Antialising = false
 }
