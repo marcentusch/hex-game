@@ -1,15 +1,8 @@
 function DrawHex(hex, hexSize, fillMode)
-  local x, y = HexToPixel(hex)
-  local vertices = {}
-  table.insert(vertices, x + hexSize)
-  table.insert(vertices, y)
-  for i = 1, 5 do
-    table.insert(vertices, x + hexSize * math.cos(i * math.pi / 3))
-    table.insert(vertices, y + hexSize * math.sin(i * math.pi / 3))
-  end
+  local vertices = CreateHexVertices(hex, hexSize)
   love.graphics.polygon(fillMode, vertices)
   if Settings.Debug then
-    WriteDebugCoords(hex, hexSize, x, y)
+    WriteDebugCoords(hex)
   end
 end
 
@@ -64,4 +57,16 @@ end
 
 function SumHex(hex1, hex2)
   return CreateHex(hex1.q + hex2.q, hex1.r + hex2.r)
+end
+
+function CreateHexVertices(hex, hexSize)
+  local x, y = HexToPixel(hex)
+  local vertices = {}
+  table.insert(vertices, x + hexSize)
+  table.insert(vertices, y)
+  for i = 1, 5, 1 do
+    table.insert(vertices, x + hexSize * math.cos(i * math.pi / 3))
+    table.insert(vertices, y + hexSize * math.sin(i * math.pi / 3))
+  end
+  return vertices
 end
