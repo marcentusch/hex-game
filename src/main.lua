@@ -14,19 +14,23 @@ Player = {
 }
 
 function love.load()
+  love.window.setTitle("Hex")
   local font = love.graphics.newFont('SpaceMono-Bold.ttf', 16)
   love.graphics.setFont(font)
   love.graphics.setDefaultFilter("nearest", "nearest")
-  love.graphics.setBackgroundColor(Settings.BackgroundColor)
-  love.graphics.setColor(Settings.HexColor)
+
+  Palette = ColorPalettes.Orange
+  love.graphics.setBackgroundColor(Palette.Background)
+  love.graphics.setColor(Palette.Grid)
+
   love.graphics.setLineWidth(Settings.HexDrawWidth)
-  love.window.setTitle("Hex")
   love.window.setMode(Settings.ScreenWidth, Settings.ScreenHeight, Settings.WindowFlags)
-  Grid = GetHexGrid(Settings.HexGridSize)
   math.randomseed(os.time())
   if not Settings.Antialising then
     love.graphics.setLineStyle('rough')
   end
+
+  Grid = GetHexGrid(Settings.HexGridSize)
 end
 
 function love.draw()
