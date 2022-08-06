@@ -2,6 +2,8 @@ require('settings')
 require('hex')
 require('util')
 require('control')
+require('grid')
+require('entity')
 
 Grid = {}
 GameSteps = 0
@@ -36,5 +38,6 @@ end
 function love.draw()
   ShowFPS()
   ShowGameStepCounter()
-  DrawGridHexes(Grid, Player.currentHex)
+  DrawGridHexes(Grid)
+  DrawPlayerHex(Player.currentHex)
 end

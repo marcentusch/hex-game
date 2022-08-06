@@ -6,19 +6,6 @@ function DrawHex(hex, hexSize, fillMode)
   end
 end
 
-function DrawGridHex(hex, playerHex)
-  if HexOverlaps(playerHex, hex) then
-    DrawPlayerHex(hex)
-  else
-    DrawHex(hex, Settings.HexSize, 'line')
-  end
-end
-
-function DrawPlayerHex(hex)
-  DrawHex(hex, Settings.HexSize, 'line')
-  DrawHex(hex, Settings.HexSize - 15, 'fill')
-end
-
 function HexToPixel(hex)
   local x = Settings.HexSize * (3 / 2 * hex.q) + love.graphics.getWidth() / 2
   local y = Settings.HexSize * (math.sqrt(3) / 2 * hex.q + math.sqrt(3) * hex.r) + love.graphics.getHeight() / 2
@@ -36,12 +23,6 @@ function GetHexGrid(mapRadius)
     end
   end
   return grid
-end
-
-function DrawGridHexes(hexGrid, playerHex)
-  for key, hex in pairs(hexGrid) do
-    DrawGridHex(hex, playerHex)
-  end
 end
 
 function HexOverlaps(hex1, hex2)
